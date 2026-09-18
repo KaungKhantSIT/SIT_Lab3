@@ -1,4 +1,7 @@
 #Vars
+from tokenize import Number
+
+
 total = 0
 fails = 0
 
@@ -18,7 +21,9 @@ def calculate_tax(amount):
 
 #Generate report of total units processed & failed entries
 def generate_report(total_units, failed_attempts):
-    pass
+    report = f"Total Units Processed: {total_units}\n\
+    Number of Failed/Rejected Entries: {failed_attempts}"
+    return report
 
 '''
 while user.lower() != "quit":
