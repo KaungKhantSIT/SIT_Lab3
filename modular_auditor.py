@@ -1,5 +1,3 @@
-#Functions
-
 #Input prompt, input validation, and return valid integer/"quit" signal
 def get_valid_input():
     stock = input("Enter stock quantity (or type 'quit' to exit): ")
@@ -22,7 +20,9 @@ def process_delivery(current_total, new_value):
 
 #Takes delivery amt & returns tax
 def calculate_tax(amount):
-    pass
+    tax_rate = 0.1  # 10% tax rate
+    taxed_total = amount * tax_rate
+    return taxed_total
 
 #Generate report of total units processed & failed entries
 def generate_report(total_units, failed_attempts):
@@ -50,27 +50,3 @@ def auditor():
 
 #Run main program
 auditor()
-
-'''
-while user.lower() != "quit":
-    user = input("Enter stock quantity: ")
-    try:
-        if user.lower() == "quit":
-            print("Total Units Processed:",stock)
-            print("Number of Failed/Rejected Entries:",fails)
-            break
-        if int(user) >= 0:
-            stock += int(user)
-            print("Current Stock:",stock)
-            if stock > 500:
-                print("Alert: Total Inventory exceeds 500 units.")
-                print("Total Units Processed:",stock)
-                print("Number of Failed/Rejected Entries:",fails)
-                break
-        else:
-            fails += 1
-            print("Please enter a positive number.")
-    except ValueError:
-        fails += 1
-        print("Please enter a number.")
-'''
