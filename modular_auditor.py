@@ -32,7 +32,21 @@ Number of Failed/Rejected Entries: {failed_attempts}"
 
 #Auditor main program function
 def auditor():
-    pass
+    total = 0
+    failed = 0
+    while True:
+        user_input = get_valid_input()
+        if user_input == "quit":
+            print(generate_report(total, failed))
+            break
+        elif user_input is None:
+            failed += 1
+        else:
+            total = process_delivery(total, user_input)
+            if total > 500:
+                print("Alert: Total Inventory exceeds 500 units.")
+                print(generate_report(total, failed))
+                break
 
 #Run main program
 auditor()
