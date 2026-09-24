@@ -17,7 +17,8 @@ def get_valid_input():
 
 #Calculates & returns running total 
 def process_delivery(current_total, new_value):
-    pass
+    new_total = current_total + new_value
+    return new_total
 
 #Takes delivery amt & returns tax
 def calculate_tax(amount):
