@@ -1,15 +1,19 @@
-#Vars
-from tokenize import Number
-
-
-total = 0
-fails = 0
-
 #Functions
 
 #Input prompt, input validation, and return valid integer/"quit" signal
 def get_valid_input():
-    pass
+    stock = input("Enter stock quantity (or type 'quit' to exit): ")
+    if stock.lower() == "quit":
+        return "quit"
+    try:
+        stock = int(stock)
+        if stock < 0:
+            print("Please enter a positive number.")
+            return None
+        return stock
+    except ValueError:
+        print("Please enter a valid number.")
+        return None
 
 #Calculates & returns running total 
 def process_delivery(current_total, new_value):
@@ -22,8 +26,15 @@ def calculate_tax(amount):
 #Generate report of total units processed & failed entries
 def generate_report(total_units, failed_attempts):
     report = f"Total Units Processed: {total_units}\n\
-    Number of Failed/Rejected Entries: {failed_attempts}"
+Number of Failed/Rejected Entries: {failed_attempts}"
     return report
+
+#Auditor main program function
+def auditor():
+    pass
+
+#Run main program
+auditor()
 
 '''
 while user.lower() != "quit":
